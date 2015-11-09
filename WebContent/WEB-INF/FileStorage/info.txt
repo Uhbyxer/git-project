@@ -1,0 +1,221 @@
+Section 1. Identification
+
+Submitting Member: Sun Microsystems Inc.
+
+Name of Contact Person: Rajiv Mordani
+
+E-Mail Address: rajiv.mordani@sun.com
+
+Telephone Number: +1 408 276 7204
+
+Fax Number: +1 408 276 7191
+
+
+Specification Lead: Rajiv Mordani, Amy Roh
+
+E-Mail Address: rajiv.mordani@sun.com, amelia.roh@sun.com
+
+Telephone Number: +1 408 276 7204, +1 415 294 4456
+
+Fax Number: +1 408 276 7191, -
+
+
+Initial Expert Group Membership:
+
+Apache
+BEA Systems
+Hani Suleiman
+IBM
+Interface21
+Jason Hunter
+Oracle
+Red Hat
+Sun Microsystems Inc
+TmaxSoft
+
+Supporting this JSR:
+
+Apache
+BEA Systems
+Greg Wilkins
+Hani Suleiman
+IBM
+Interface21
+Jason Hunter
+Oracle
+Red Hat
+Sun Microsystems Inc
+TmaxSoft
+
+
+
+Section 2: Request
+
+2.1 Please describe the proposed Specification:
+
+Background
+This JSR is to develop the next version of Java Servlets - Java Servlets 3.0 Specification. One of the goals for Java EE 6 is extensibility. Servlet 3.0 specification will work on extensibility / pluggability. Web framework pluggability will be a key driver of the Servlet 3.0 specification. As part of the revision for Java EE 6 we would like to revise the Servlet specification to support the Ease of Development (EoD) using the newer language features. Also along with EoD there have been requests for enhancements in other areas as well to support the modern next generation web application development. This JSR tries to highlight some of the features that we plan to target with the next revision of the servlet specification.
+Proposal
+Web framework pluggability.
+Almost all of the Java based web frameworks build on top of servlets. Most web frameworks today plugin either through servlets or through web.xml. Annotations to define some of the servlets, listeners, filters will help in making this possible. Programatic access to web.xml and dynamic changes to configuration of a webapp are desired features. This JSR will aim to provide the ability to seamlessly plugin different web frameworks into web appplications.
+EOD
+Annotations - use of annotations for the declarative style of programming.
+As part of the EoD effort the goal is to have zero configuration for web applications. The deployment descriptors would be used to override configuration.
+Generics - Use generics in the API where possible.
+Use of other language enhancements where possible to improve the usability of the API.
+Async and Comet support
+Non-blocking input - The ability to receive data from a client without blocking if the data is slow arriving.
+Non-blocking output - The ability to send data to a client without blocking if the client or network is slow.
+Delay request handling - The comet style of Ajax web application can require that a request handling is delayed until either a timeout or an event has occurred. Delaying request handling is also useful if a remote/slow resource must be obtained before servicing the request or if access to a specific resource needs to be throttled to prevent too many simultaneous accesses.
+Delay response close - The comet style of Ajax web application can require that a response is held open to allow additional data to be sent when asynchronous events occur.
+Blocking - Non-blocking notification - The ability to notify push blocking or non-blocking events. Channels concept - The ability to subscribe to a channel and get asyncronous events from that channel. This implies being able to create, subscribe, unsubscribe and also apply some security restriction on who can join and who cannot.
+Security
+Ability to login / logout.
+Self registration.
+Alignment
+Alignment / requirements from REST JSR (JSR 311).
+Alignment / requirements from JSF 2.0 JSR.
+Misc
+Better welcome file support.
+ServletContextListener ordering.
+Container wide definition for init params.
+File upload - progress listener - where to store interim and final file.
+Clarifications of thread-safety issues.
+2.2 What is the target Java platform? (i.e., desktop, server, personal, embedded, card, etc.)
+
+This specification is targeted for Java EE 6 or higher platforms.
+
+2.3 The Executive Committees would like to ensure JSR submitters think about how their proposed technology relates to all of the Java platform editions. Please provide details here for which platform editions are being targeted by this JSR, and how this JSR has considered the relationship with the other platform editions.
+
+This specification targets the Java EE 6 Platform. It will be based on the corresponding release of the Java SE platform.
+
+Should this JSR be voted on by both Executive Committees?
+
+No. Just the SE/EE Executive Committee.
+
+2.5 What need of the Java community will be addressed by the proposed specification?
+
+See 2.1
+
+2.6 Why isn't this need met by existing specifications?
+
+This specification is an update to the existing Servlet specification.
+
+2.7 Please give a short description of the underlying technology or technologies:
+
+The specification would depend on JSR 175(A Metadata Facility for the JavaTM Programming Language) and hence J2SE 5.0.
+
+2.8 Is there a proposed package name for the API Specification? (i.e., javapi.something, org.something, etc.)
+
+javax.servlet.*
+
+2.9 Does the proposed specification have any dependencies on specific operating systems, CPUs, or I/O devices that you know of?
+
+No
+
+2.10 Are there any security issues that cannot be addressed by the current security model?
+
+No
+
+2.11 Are there any internationalization or localization issues?
+
+This JSR will use the I18N support in Java SE.
+
+2.12 Are there any existing specifications that might be rendered obsolete, deprecated, or in need of revision as a result of this work?
+
+This is an update to Servlets 2.5 (JSR 154).
+
+2.13 Please describe the anticipated schedule for the development of this specification.
+
+We hope to deliver the final specification, reference implementation, and TCK in the Q4 of 2008.  A rough schedule would be: 
+July 2007	Expert group formed
+september 2007	First expert draft
+October 2007	Early Draft review
+December 2007	Public Review
+March 2008
+Proposed final draft
+Q4 2008
+Final release.
+2.14 Please describe the anticipated working model for the Expert Group working on developing this specification.
+
+The primary means of communication will be email, with conference calls and face-to-face meetings scheduled as needed. We will solicit feedback from the community and leverage the open source development model.
+
+2.15 It is important to the success of the community and each JSR that the work of the Expert Group be handled in a manner which provides the community and the public with insight into the work the Expert Group is doing, and the decisions that the Expert Group has made. The Executive Committees would like to ensure Spec Leads understand the value of this transparency and ask that each JSR have an operating plan in place for how their JSR will address the involvement of the community and the public. Please provide your plan here, and refer to the Spec Lead Guide for a more detailed description and a set of example questions you may wish to answer in your plan.
+
+We will leverage the collaborative tools provided by the java.net infrastructure. We have established the "servlet-spec-public" project on java.net. Therein, we will have a public issue tracker for tracking most issues. Any issues that absolutely must be EG private will be handled with a separate EG-private issue tracker. We will have an EG-private mailing list. The reference implementation will be developed entirely in the public GlassFish project on java.net. The TCK will be developed privately by Sun. We will leverage the Early Draft feature of JCP 2.6 to allow the public to see the spec in progress.
+
+2.16 Please describe how the RI and TCK will de delivered, i.e. as part of a profile or platform edition, or stand-alone, or both. Include version information for the profile or platform in your answer.
+
+The RI will be delivered as part of the Java EE 6 RI. The TCK will be delivered both standalone and as part of the Java EE 6 TCK. See the business terms for details.
+
+2.17 Please state the rationale if previous versions are available stand-alone and you are now proposing in 2.13 to only deliver RI and TCK as part of a profile or platform edition (See sections 1.1.5 and 1.1.6 of the JCP 2 document).
+
+N/A
+
+2.18 Please provide a description of the business terms for the Specification, RI and TCK that will apply when this JSR is final.
+
+Pursuant to Section 2.2.1 of the Java Community Process version 2.6, the following is a summary of Sun's anticipated principal license terms and conditions for the JSR, Java Servlet 3.0. The business terms for Java Servlet 3.0 have not changed from those for Java Servlet 2.4 and they impose no new restrictions.
+
+The Java Servlet 3.0 Technology Compatibility Kit (TCK) will be available both as a standalone TCK and included as part of the Java EE 6 Compatibility Test Suite (CTS). The Java Servlet 3.0 Reference Implementation (RI) will be available both separately and as part of the Java EE 6 RI.
+
+Non-Commercial Use
+
+As required by the Java Specification Participation Agreement (JSPA), the Java Servlet 3.0 TCK will be licensed at no charge without support to qualified not-for-profit entities. Such qualification will be verified by the Compatibility Testing Scholarship Program. Support may also be provided at no charge with approval of the scholarship board. For more information, please refer to: http://java.sun.com/scholarship/.
+
+The RI will be available at no cost under an open source license.
+
+Commercial Use
+
+Covers all use that doesn't fall under "Non-Commercial Use" above.
+
+Java Servlet 3.0 TCK Java Licensee Engineering (JLE) support, available for a fee not to exceed $50k, is required for commercial use for each Marketed Product* which implements the Java Servlet 3.0 specification. TCK JLE support includes access, updates and upgrades to the TCK at no additional charge.
+
+Java Servlet 3.0 RI and TCK JLE and marketing support will be made available at no extra charge to Java EE licensees under their Java EE business terms.
+
+The RI will also be made available at no cost under an open source license for commercial use.
+
+For purposes of these terms:
+
+Marketed Product is intended to describe a licensee's product that has its own differentiation and marketing collateral. It may comprise one price list entry, or in some cases multiple entries (for example, to account for different localizations or delivery packaging). By way of example, in terms of Sun's product line we wouldn't consider Sun's Java Application Server to be a Marketed Product, but Sun's Java Application Server Platform Edition, Standard Edition, and Enterprise Edition are 3 Marketed Products. Sun's Java Studio Enterprise is a fourth Marketed Product.
+
+
+
+
+
+Section 3: Contributions
+
+3.1 Please list any existing documents, specifications, or implementations that describe the technology. Please include links to the documents if they are publicly available.
+
+Java Platform, Enterprise Edition Specification 5, and related specifications 
+http://java.sun.com/javaee/5/docs/api/
+Java Platform, Standard Edition 6, API Specification 
+http://java.sun.com/javase/6/docs/api/
+
+JSR-154 Java Servlet Specification 2.4
+http://jcp.org/jsr/detail/154.jsp
+JAX-RS: Java API for RESTful Web Services
+http://jcp.org/jsr/detail/311.jsp
+Project Grizzly
+https://grizzly.dev.java.net/
+Apache Tomcat
+http://tomcat.apache.org/
+Jetty
+http://www.mortbay.org/
+Shale
+http://shale.apache.org/
+DWR
+https://dwr.dev.java.net/
+Struts
+http://struts.apache.org/
+
+Spring Web Flow
+http://www.springframework.org/webflow
+
+Wicket
+http://wicket.sourceforge.net/
+
+3.2 Explanation of how these items might be used as a starting point for the work.
+
+Containers with current Comet support such as Grizzly, Tomcat and Jetty listed above will be reviewed when defining APIs for Comet.
+Also some of the frameworks listed above such as Shale, DWR, Spring web flow, etc will be analyzed for web frameworks pluggability.
+

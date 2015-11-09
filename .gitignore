@@ -1,0 +1,5 @@
+target/
+docs/*.txt
+.settings
+.classpath
+.project
