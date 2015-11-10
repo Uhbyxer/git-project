@@ -10,5 +10,6 @@
 	<h1>Something is broken, but we will fix it soon !</h1>
 	<h2>aaaaaabbbbb</h2>
 	Hello new branch
+	hello master
 </body>
 </html>
