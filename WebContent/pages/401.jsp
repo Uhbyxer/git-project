@@ -4,7 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< HEAD
 <title>error-400 500</title>
+=======
+<title>error-401  </title>
+>>>>>>> 939f6ca60ae582591e84ead63fc4ff8394d4b079
 </head>
 <body>
 	<h1>Bad request !</h1>
